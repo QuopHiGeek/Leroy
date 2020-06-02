@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Note:
+	# NC makes the rule to non case sensitive
+	# L makes this the last rule that this specific condition will match
+	RewriteRule ^get/?$  request/get.php [NC,L]
+	RewriteRule ^getOne/([0-9a-zA-Z]+)?$ request/getOne.php?id=$1 [NC,L]
+	RewriteRule ^batch/?$  request/batch.php [NC,L]
+	RewriteRule ^getBatch/([0-9a-zA-Z]+)?$ request/batchContent.php?id=$1 [NC,L]
+	RewriteRule ^getFacilities/?$  request/facilities.php [NC,L]
+	RewriteRule ^getTreshDetails/?$  request/treshhold.php [NC,L]
+	RewriteRule ^updateTreshhold/([0-9]+)?/([0-9]+)?$  request/update_treshhold.php?facility_id=$1&qty=$2 [NC,L]
+	RewriteRule ^InputTreatedQty/([0-9]+)?/([0-9]+)?$  request/update_treated.php?facility_id=$1&qty=$2 [NC,L]
+#	RewriteRule ^merchant-daily-transaction/([/\a-zA-Z0-9_-]+)/([/\a-zA-Z0-9_-]+)-?$ merchant-daily-transaction.php?merchant=$1&date=$2 [QSA,L,B]
+
+	RewriteRule ^404 404.php [NC,L]
+
+</IfModule>
